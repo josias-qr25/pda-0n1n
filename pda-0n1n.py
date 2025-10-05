@@ -7,14 +7,12 @@ def run_pda(input_string):
 
     if not all(c in "01" for c in input_string):
         print("Input Error: String contains characters other than 0 or 1.")
-        return "-- INPUT REJECTED --"
+        print("-- INPUT REJECTED --")
 
     # State q0. Transition to q1.
     if state == "q0":
         state = "q1"
-        print(
-            f"Transition (q0, epsilon, Z0) -> (q1, Z0). State={state}, Stack={stack}"
-        )
+        print(f"Transition (q0, epsilon, Z0) -> (q1, Z0). State={state}, Stack={stack}")
 
     # State q1.
     i = 0
@@ -39,10 +37,10 @@ def run_pda(input_string):
                     i += 1
                 else:
                     print("Read '1' in state q1.")
-                    return "-- INPUT REJECTED --"
+                    print("-- INPUT REJECTED --")
             else:
                 print("Input format error. Must be 0s followed by 1s.")
-                return "-- INPUT REJECTED --"
+                print("-- INPUT REJECTED --")
 
         elif state == "q2":
             if char == "1":
@@ -54,18 +52,18 @@ def run_pda(input_string):
                     i += 1
                 else:
                     print("Error: More 1s than 0s.")
-                    return "-- INPUT REJECTED --"
+                    print("-- INPUT REJECTED --")
             else:
                 print("Input format error. '0' cannot appear after a '1'.")
-                return "-- INPUT REJECTED --"
+                print("-- INPUT REJECTED --")
 
     print(f"End of input: State={state}, Stack={stack}")
     if state == "q2" and stack == ["Z0"]:
         print("Final state is q2 and stack is empty.")
-        return "++ INPUT ACCEPTED ++"
+        print("++ INPUT ACCEPTED ++")
     else:
         print("Did not end in accepting state or stack not empty.")
-        return "-- INPUT REJECTED --"
+        print("-- INPUT REJECTED --")
 
 
 input_string = input("Enter a string for the PDA to test: ")
