@@ -30,14 +30,12 @@ def run_pda(input_string):
                 elif top == "Z0":
                     stack.append("X")
                     print(f"Read '0': (q1, 0, Z0) -> (q1, XZ0). Stack={stack}")
-                    i += 1
-                elif char == "1":
-                    if stack[-1] == "X":
-                        stack.pop()
-                        state = "q2"
-                        print(
-                            f"Read '1': (q1, 1, X) -> (q2, epsilon). State={state}, Stack={stack}"
-                        )
+                i += 1
+            elif char == "1":
+                if stack[-1] == "X":
+                    stack.pop()
+                    state = "q2"
+                    print(f"Read '1': (q1, 1, X) -> (q2, epsilon). State={state}, Stack={stack}")    
                     i += 1
                 else:
                     print("Read '1' in state q1.")
