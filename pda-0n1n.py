@@ -68,5 +68,5 @@ def run_pda(input_string):
         return "-- INPUT REJECTED --"
 
 
-input_string = input()
+input_string = input("Enter a string for the PDA to test: ")
 run_pda(input_string)
