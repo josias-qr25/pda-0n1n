@@ -71,3 +71,4 @@ def run_pda(input_string):
 
 
 input_string = input()
+run_pda(input_string)
